@@ -1,4 +1,4 @@
-package com.mashibing.dp;
+package com.weiyuze.dp;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
