@@ -1,18 +1,17 @@
-package com.weiyuze.dp.strategy;
+package com.weiyuze.dp.strategy_teach;
 
 public class Cat implements Comparable<Cat> {
-    int weight;
-    int height;
+    int weight, height;
 
     public Cat(int weight, int height) {
         this.weight = weight;
         this.height = height;
     }
 
-    @Override
     public int compareTo(Cat c) {
-        if (this.weight < c.weight) return -1;
-        else if (this.weight > c.weight) return 1;
+
+        if(this.weight < c.weight) return -1;
+        else if(this.weight > c.weight) return 1;
         else return 0;
     }
 
