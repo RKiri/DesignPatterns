@@ -1,6 +1,6 @@
-package com.weiyuze.dp.abstractfactory;
+package com.weiyuze.dp.abstractFactory;
 
-public abstract class AbastractFactory {
+public abstract class AbstractFactory {
     abstract Food createFood();
     abstract Vehicle createVehicle();
     abstract Weapon createWeapon();

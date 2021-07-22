@@ -1,7 +1,8 @@
-package com.weiyuze.dp.abstractfactory;
+package com.weiyuze.dp.abstractFactory;
 
-public class AK47 extends Weapon{
-    public void shoot() {
-        System.out.println("tututututu....");
+public class AK47 extends Weapon {
+    @Override
+    void shoot() {
+        System.out.println("tutututu....");
     }
 }

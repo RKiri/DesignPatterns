@@ -1,14 +1,18 @@
-package com.weiyuze.dp.abstractfactory;
+package com.weiyuze.dp.abstractFactory;
 
 public class Main {
     public static void main(String[] args) {
-        AbastractFactory f = new ModernFactory();
+        //AbstractFactory af = new ModernFactory();
+        AbstractFactory af = new MagicFactory();
 
-        Vehicle c = f.createVehicle();
-        c.go();
-        Weapon w = f.createWeapon();
+        Food f = af.createFood();
+        f.printName();
+
+        Vehicle v = af.createVehicle();
+        v.go();
+
+        Weapon w = af.createWeapon();
         w.shoot();
-        Food b = f.createFood();
-        b.printName();
+
     }
 }

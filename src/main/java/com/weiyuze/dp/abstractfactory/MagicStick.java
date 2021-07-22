@@ -1,7 +1,8 @@
-package com.weiyuze.dp.abstractfactory;
+package com.weiyuze.dp.abstractFactory;
 
-public class MagicStick extends Weapon{
-    public void shoot() {
-        System.out.println("diandian....");
+public class MagicStick extends Weapon {
+    @Override
+    void shoot() {
+        System.out.println("bulingbuling....");
     }
 }

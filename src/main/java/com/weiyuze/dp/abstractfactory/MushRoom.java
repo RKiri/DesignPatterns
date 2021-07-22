@@ -1,7 +1,8 @@
-package com.weiyuze.dp.abstractfactory;
+package com.weiyuze.dp.abstractFactory;
 
-public class MushRoom extends Food{
-    public void printName() {
+public class MushRoom extends Food {
+    @Override
+    void printName() {
         System.out.println("dmg");
     }
 }

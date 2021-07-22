@@ -1,6 +1,6 @@
-package com.weiyuze.dp.abstractFactory;
+package com.weiyuze.dp.abstractfactory_teach;
 
-public class MagicFactory extends AbstractFactory {
+public class MagicFactory extends AbastractFactory {
     @Override
     Food createFood() {
         return new MushRoom();

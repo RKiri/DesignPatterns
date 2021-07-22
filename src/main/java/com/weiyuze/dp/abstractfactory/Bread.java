@@ -1,7 +1,8 @@
-package com.weiyuze.dp.abstractfactory;
+package com.weiyuze.dp.abstractFactory;
 
-public class Bread extends Food{
-    public void printName() {
-        System.out.println("wdm");
+public class Bread extends Food {
+    @Override
+    void printName() {
+        System.out.println("hll");
     }
 }

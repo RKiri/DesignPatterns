@@ -1,7 +1,8 @@
-package com.weiyuze.dp.abstractfactory;
+package com.weiyuze.dp.abstractFactory;
 
-public class Broom extends Vehicle{
-    public void go() {
-        System.out.println("Car go wuwuwuwuw....");
+public class Broom extends Vehicle {
+    @Override
+    void go() {
+        System.out.println("Broom flying shuashuashua....");
     }
 }

@@ -1,6 +1,7 @@
-package com.weiyuze.dp.abstractFactory;
+package com.weiyuze.dp.abstractfactory_teach;
 
-public class ModernFactory extends AbstractFactory {
+
+public class ModernFactory extends AbastractFactory {
     @Override
     Food createFood() {
         return new Bread();
