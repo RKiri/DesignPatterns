@@ -3,74 +3,60 @@ package com.weiyuze.dp.observer.v5;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 分离观察者与被观察者
- */
-
-class Child {
-    private boolean cry = false;
-    private List<Observer> observers = new ArrayList<>();
-
-    {
-        observers.add(new Dad());
-        observers.add(new Mum());
-        observers.add(new Dog());
+public class Main {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.wakeUp();
     }
-
-
-    public boolean isCry() {
+}
+class Child{
+    public Boolean getCry() {
         return cry;
     }
 
-    public void wakeUp() {
-        cry = true;
-        for(Observer o : observers) {
+    Boolean cry = false;
+    List<Observer> observers = new ArrayList<>();
+    {
+        observers.add(new Dad());
+        observers.add(new Mom());
+        observers.add(new Dad());
+    }
+    public void wakeUp(){
+        for(Observer o:observers){
             o.actionOnWakeUp();
         }
     }
 }
-
-interface Observer {
+interface Observer{
     void actionOnWakeUp();
 }
+class Dad implements Observer{
 
-class Dad implements Observer {
-    public void feed() {
-        System.out.println("dad feeding...");
+    public void feed(){
+        System.out.println("Dad feeding...");
     }
-
     @Override
     public void actionOnWakeUp() {
         feed();
     }
 }
+class Mom implements Observer{
 
-class Mum implements Observer {
-    public void hug() {
-        System.out.println("mum hugging...");
+    public void hug(){
+        System.out.println("Mom hugging...");
     }
-
     @Override
     public void actionOnWakeUp() {
         hug();
     }
 }
+class Dog implements Observer{
 
-class Dog implements Observer {
-    public void wang() {
-        System.out.println("dog wang...");
+    public void wang(){
+        System.out.println("Dog wang...");
     }
-
     @Override
     public void actionOnWakeUp() {
         wang();
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Child c = new Child();
-        //do sth
-        c.wakeUp();
     }
 }

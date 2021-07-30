@@ -3,44 +3,33 @@ package com.weiyuze.dp.observer.v6;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 有很多时候，观察者需要根据事件的具体情况来进行处理
- */
+public class Main {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.WakeUp();
+    }
+}
 
 class Child {
-    private boolean cry = false;
-    private List<Observer> observers = new ArrayList<>();
-
-    {
-        observers.add(new Dad());
-        observers.add(new Mum());
-        observers.add(new Dog());
-    }
-
-
     public boolean isCry() {
         return cry;
     }
 
-    public void wakeUp() {
+    boolean cry = false;
+    List<Observer> observers = new ArrayList<>();
+
+    {
+        observers.add(new Dad());
+        observers.add(new Mom());
+        observers.add(new Dog());
+    }
+
+    public void WakeUp() {
         cry = true;
-
-        wakeUpEvent event = new wakeUpEvent(System.currentTimeMillis(), "bed");
-
-        for(Observer o : observers) {
+        wakeUpEvent event = new wakeUpEvent(System.currentTimeMillis(), "bad");
+        for (Observer o : observers) {
             o.actionOnWakeUp(event);
         }
-    }
-}
-
-//事件类 fire Event
-class wakeUpEvent{
-    long timestamp;
-    String loc;
-
-    public wakeUpEvent(long timestamp, String loc) {
-        this.timestamp = timestamp;
-        this.loc = loc;
     }
 }
 
@@ -49,8 +38,8 @@ interface Observer {
 }
 
 class Dad implements Observer {
-    public void feed() {
-        System.out.println("dad feeding...");
+    void feed() {
+        System.out.println("Dad feeding...");
     }
 
     @Override
@@ -59,9 +48,9 @@ class Dad implements Observer {
     }
 }
 
-class Mum implements Observer {
-    public void hug() {
-        System.out.println("mum hugging...");
+class Mom implements Observer {
+    void hug() {
+        System.out.println("Mom huging...");
     }
 
     @Override
@@ -71,8 +60,8 @@ class Mum implements Observer {
 }
 
 class Dog implements Observer {
-    public void wang() {
-        System.out.println("dog wang...");
+    void wang() {
+        System.out.println("Dog wang...");
     }
 
     @Override
@@ -81,10 +70,12 @@ class Dog implements Observer {
     }
 }
 
-public class Main {
-    public static void main(String[] args) {
-        Child c = new Child();
-        //do sth
-        c.wakeUp();
+class wakeUpEvent {
+    long timeStamp;
+    String log;
+
+    public wakeUpEvent(long timeStamp, String log) {
+        this.timeStamp = timeStamp;
+        this.log = log;
     }
 }

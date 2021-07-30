@@ -3,45 +3,44 @@ package com.weiyuze.dp.observer.v7;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 有很多时候，观察者需要根据事件的具体情况来进行处理
- * 大多数时候，我们处理事件的时候，需要事件源对象
- */
+public class Main {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.wakeUp();
+    }
+}
 
 class Child {
-    private boolean cry = false;
-    private List<Observer> observers = new ArrayList<>();
-
-    {
-        observers.add(new Dad());
-        observers.add(new Mum());
-        observers.add(new Dog());
-    }
-
-
     public boolean isCry() {
         return cry;
     }
 
-    public void wakeUp() {
+    boolean cry = false;
+    List<Observer> observers = new ArrayList<>();
+
+    {
+        observers.add(new Dad());
+        observers.add(new Mom());
+        observers.add(new Dog());
+    }
+
+    void wakeUp() {
         cry = true;
-
-        wakeUpEvent event = new wakeUpEvent(System.currentTimeMillis(), "bed", this);
-
-        for(Observer o : observers) {
+        wakeUpEvent event = new wakeUpEvent(System.currentTimeMillis(), "bad", this);
+        for (Observer o : observers) {
             o.actionOnWakeUp(event);
         }
     }
 }
 
-class wakeUpEvent{
+class wakeUpEvent {
     long timestamp;
-    String loc;
+    String log;
     Child source;
 
-    public wakeUpEvent(long timestamp, String loc, Child source) {
+    public wakeUpEvent(long timestamp, String log, Child source) {
         this.timestamp = timestamp;
-        this.loc = loc;
+        this.log = log;
         this.source = source;
     }
 }
@@ -51,8 +50,9 @@ interface Observer {
 }
 
 class Dad implements Observer {
-    public void feed() {
-        System.out.println("dad feeding...");
+
+    void feed() {
+        System.out.println("Dad feeding...");
     }
 
     @Override
@@ -61,9 +61,10 @@ class Dad implements Observer {
     }
 }
 
-class Mum implements Observer {
-    public void hug() {
-        System.out.println("mum hugging...");
+class Mom implements Observer {
+
+    void hug() {
+        System.out.println("Mom hugging...");
     }
 
     @Override
@@ -73,20 +74,13 @@ class Mum implements Observer {
 }
 
 class Dog implements Observer {
-    public void wang() {
-        System.out.println("dog wang...");
+
+    void wang() {
+        System.out.println("Dog wang...");
     }
 
     @Override
     public void actionOnWakeUp(wakeUpEvent event) {
         wang();
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Child c = new Child();
-        //do sth
-        c.wakeUp();
     }
 }
