@@ -1,4 +1,4 @@
-package com.weiyuze.dp.flyweight;
+package com.weiyuze.dp.flyweight_teach;
 
 public class TestString {
     public static void main(String[] args) {
@@ -7,8 +7,8 @@ public class TestString {
         String s3 = new String("abc");
         String s4 = new String("abc");
 
-        System.out.println(s1 == s2);
-        System.out.println(s1 == s3);
+        System.out.println(s1 == s2); //true
+        System.out.println(s1 == s3); //false
         System.out.println(s3 == s4);
         System.out.println(s3.intern() == s1);
         System.out.println(s3.intern() == s4.intern());
