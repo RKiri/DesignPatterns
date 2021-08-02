@@ -1,5 +1,7 @@
-package com.weiyuze.dp.proxy.v10;
+package com.weiyuze.dp.proxy.v9;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Random;
 
@@ -16,11 +18,30 @@ public class Tank implements Movable{
 
     public static void main(String[] args) {
         Tank t = new Tank();
-
-        System.getProperties().put("jdk.proxy.ProxyGenerator.saveGeneratedFiles","true");
-
         Movable m = (Movable) Proxy.newProxyInstance(Tank.class.getClassLoader(),new Class[]{Movable.class},new TimeProxy(t));
         m.move();
+    }
+}
+class TimeProxy implements InvocationHandler{
+
+    Tank t;
+
+    public TimeProxy(Tank t) {
+        this.t = t;
+    }
+
+    void before(){
+        System.out.println("method start...");
+    }
+    void after(){
+        System.out.println("method end...");
+    }
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        before();
+        Object o = method.invoke(t,args);
+        after();
+        return null;
     }
 }
 interface Movable{

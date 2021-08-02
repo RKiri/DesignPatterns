@@ -1,6 +1,5 @@
-package com.weiyuze.dp.proxy.v10;
+package com.weiyuze.dp.proxy.v4;
 
-import java.lang.reflect.Proxy;
 import java.util.Random;
 
 public class Tank implements Movable{
@@ -15,12 +14,17 @@ public class Tank implements Movable{
     }
 
     public static void main(String[] args) {
-        Tank t = new Tank();
+        new Tank2().move();
+    }
+}
+class Tank2 extends Tank{
 
-        System.getProperties().put("jdk.proxy.ProxyGenerator.saveGeneratedFiles","true");
-
-        Movable m = (Movable) Proxy.newProxyInstance(Tank.class.getClassLoader(),new Class[]{Movable.class},new TimeProxy(t));
-        m.move();
+    @Override
+    public void move() {
+        long start = System.currentTimeMillis();
+        super.move();
+        long end = System.currentTimeMillis();
+        System.out.println(end-start);
     }
 }
 interface Movable{

@@ -9,8 +9,8 @@
 
     <!--
 
-    <bean id="d" class="com.mashibing.Driver"></bean>
-    <bean id="tank" class="com.mashibing.Tank">
+    <bean id="d" class="com.weiyuze.Driver"></bean>
+    <bean id="tank" class="com.weiyuze.Tank">
         <property name="driver" ref="d"></property>
     </bean>
 
@@ -18,8 +18,8 @@
 
     <aop:aspectj-autoproxy/>
 
-    <bean id="tank" class="com.mashibing.dp.spring.v2.Tank"/>
-    <bean id="timeProxy" class="com.mashibing.dp.spring.v2.TimeProxy"/>
+    <bean id="tank" class="com.weiyuze.dp.spring.v2.Tank"/>
+    <bean id="timeProxy" class="com.weiyuze.dp.spring.v2.TimeProxy"/>
 
 <!--    <aop:config>-->
 <!--        <aop:aspect id="time" ref="timeProxy">-->
