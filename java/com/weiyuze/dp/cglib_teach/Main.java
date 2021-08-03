@@ -1,4 +1,4 @@
-package com.weiyuze.dp.cglib;
+package com.weiyuze.dp.cglib_teach;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;

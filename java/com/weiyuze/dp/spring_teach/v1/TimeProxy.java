@@ -1,4 +1,4 @@
-package com.weiyuze.dp.spring.v1;
+package com.weiyuze.dp.spring_teach.v1;
 
 public class TimeProxy {
 
