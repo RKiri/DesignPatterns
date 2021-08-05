@@ -5,30 +5,40 @@ public class Computer {
     ComputerPart memory = new Memory();
     ComputerPart board = new Board();
 
-    public void acccept(Visitor v) {
-        this.cpu.accept(v);
-        this.memory.accept(v);
-        this.board.accept(v);
+    void accept(Visitor visitor) {
+        cpu.accept(visitor);
+        memory.accept(visitor);
+        board.accept(visitor);
     }
 
     public static void main(String[] args) {
-        PersonelVisitor p = new PersonelVisitor();
-        new Computer().acccept(p);
+        //PersonalVisitor p = new PersonalVisitor();
+        CorpVisitor p = new CorpVisitor();
+        Computer c = new Computer();
+        c.accept(p);
         System.out.println(p.totalPrice);
     }
 }
 
 abstract class ComputerPart {
     abstract void accept(Visitor v);
-    //some other operations eg:getName getBrand
+
     abstract double getPrice();
+}
+
+interface Visitor {
+    void visitCPU(CPU cpu);
+
+    void visitBoard(Board board);
+
+    void visitMemory(Memory memory);
 }
 
 class CPU extends ComputerPart {
 
     @Override
     void accept(Visitor v) {
-        v.visitCpu(this);
+        v.visitCPU(this);
     }
 
     @Override
@@ -63,46 +73,43 @@ class Board extends ComputerPart {
     }
 }
 
-interface Visitor {
-    void visitCpu(CPU cpu);
-    void visitMemory(Memory memory);
-    void visitBoard(Board board);
-}
+class PersonalVisitor implements Visitor {
 
-class PersonelVisitor implements Visitor {
     double totalPrice = 0.0;
 
     @Override
-    public void visitCpu(CPU cpu) {
-        totalPrice += cpu.getPrice()*0.9;
-    }
-
-    @Override
-    public void visitMemory(Memory memory) {
-        totalPrice += memory.getPrice()*0.85;
+    public void visitCPU(CPU cpu) {
+        totalPrice += cpu.getPrice() * 0.9;
     }
 
     @Override
     public void visitBoard(Board board) {
-        totalPrice += board.getPrice()*0.95;
+        totalPrice += board.getPrice() * 0.9;
+    }
+
+    @Override
+    public void visitMemory(Memory memory) {
+        totalPrice += memory.getPrice() * 0.9;
     }
 }
 
 class CorpVisitor implements Visitor {
+
     double totalPrice = 0.0;
 
     @Override
-    public void visitCpu(CPU cpu) {
-        totalPrice += cpu.getPrice()*0.6;
-    }
-
-    @Override
-    public void visitMemory(Memory memory) {
-        totalPrice += memory.getPrice()*0.75;
+    public void visitCPU(CPU cpu) {
+        totalPrice += cpu.getPrice() * 0.8;
     }
 
     @Override
     public void visitBoard(Board board) {
-        totalPrice += board.getPrice()*0.75;
+        totalPrice += board.getPrice() * 0.8;
+    }
+
+    @Override
+    public void visitMemory(Memory memory) {
+        totalPrice += memory.getPrice() * 0.8;
     }
 }
+
