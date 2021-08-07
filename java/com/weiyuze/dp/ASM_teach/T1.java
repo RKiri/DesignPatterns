@@ -1,4 +1,4 @@
-package com.weiyuze.dp.ASM;
+package com.weiyuze.dp.ASM_teach;
 
 /**
  * 光标必须位于类体内，View-Show ByteCode

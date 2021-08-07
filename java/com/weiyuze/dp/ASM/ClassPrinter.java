@@ -10,13 +10,14 @@ import java.io.IOException;
 import static org.objectweb.asm.Opcodes.ASM4;
 
 public class ClassPrinter extends ClassVisitor {
+
     public ClassPrinter() {
         super(ASM4);
     }
 
     @Override
     public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
-        System.out.println(name + " extends " + superName + "{" );
+        System.out.println(name + " extends " + superName + "{");
     }
 
     @Override
@@ -33,17 +34,13 @@ public class ClassPrinter extends ClassVisitor {
 
     @Override
     public void visitEnd() {
-
         System.out.println("}");
     }
 
     public static void main(String[] args) throws IOException {
         ClassPrinter cp = new ClassPrinter();
-        //ClassReader cr = new ClassReader("java.lang.Runnable");
-        ClassReader cr = new ClassReader(
-                ClassPrinter.class.getClassLoader().getResourceAsStream("com/mashibing/dp/ASM/T1.class"));
+        ClassReader cr = new ClassReader("java.lang.Runnable");
 
-
-        cr.accept(cp, 0);
+        cr.accept(cp,0);
     }
 }
