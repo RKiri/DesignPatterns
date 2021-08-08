@@ -1,4 +1,4 @@
-package com.weiyuze.dp.cor.servlet.v2;
+package com.weiyuze.dp.cor_teach.servlet.v1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,26 +8,24 @@ public class Servlet_Main {
         Request request = new Request();
         request.str = "大家好:)，<script>，欢迎访问 mashibing.com ，大家都是996 ";
         Response response = new Response();
-        response.str = "response";
+        response.str = "";
 
         FilterChain chain = new FilterChain();
         chain.add(new HTMLFilter()).add(new SensitiveFilter());
         chain.doFilter(request, response);
         System.out.println(request.str);
-        System.out.println(response.str);
 
     }
 }
 
 interface Filter {
-    boolean doFilter(Request request, Response response);
+    boolean doFilter(Request request,Response response);
 }
 
 class HTMLFilter implements Filter {
     @Override
-    public boolean doFilter(Request request, Response response) {
+    public boolean doFilter(Request request,Response response) {
         request.str = request.str.replaceAll("<", "[").replaceAll(">", "]");
-        response.str += "--HTMLFilter()";
         return true;
     }
 }
@@ -42,12 +40,12 @@ class Response {
 
 class SensitiveFilter implements Filter {
     @Override
-    public boolean doFilter(Request request, Response response) {
+    public boolean doFilter(Request request,Response response) {
         request.str = request.str.replaceAll("996", "955");
-        response.str += "--SensitiveFilter()";
         return true;
     }
 }
+
 
 
 class FilterChain implements Filter {
@@ -58,7 +56,7 @@ class FilterChain implements Filter {
         return this;
     }
 
-    public boolean doFilter(Request request, Response response) {
+    public boolean doFilter(Request request,Response response) {
 
         for(Filter f : filters ){
             f.doFilter(request, response);

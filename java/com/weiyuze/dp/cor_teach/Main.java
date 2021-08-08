@@ -1,4 +1,4 @@
-package com.weiyuze.dp.cor;
+package com.weiyuze.dp.cor_teach;
 
 import java.util.ArrayList;
 import java.util.List;
