@@ -8,37 +8,40 @@ public class Person {
     int score;
     Location loc;
 
-    private Person() {}
+    private Person() {
+    }
 
-    public static class PersonBuilder {
+    static class PersonBulider {
         Person p = new Person();
 
-        public PersonBuilder basicInfo(int id, String name, int age) {
+        PersonBulider basicInfo(int id, String name, int age) {
             p.id = id;
             p.name = name;
             p.age = age;
             return this;
         }
 
-        public PersonBuilder weight(double weight) {
+        PersonBulider weight(double weight) {
             p.weight = weight;
             return this;
         }
 
-        public PersonBuilder score(int score) {
+        PersonBulider score(int score) {
             p.score = score;
             return this;
         }
 
-        public PersonBuilder loc(String street, String roomNo) {
+        PersonBulider loc(String street, String roomNo) {
             p.loc = new Location(street, roomNo);
             return this;
         }
 
-        public Person build() {
+        Person bulid() {
             return p;
         }
     }
+
+
 }
 
 class Location {

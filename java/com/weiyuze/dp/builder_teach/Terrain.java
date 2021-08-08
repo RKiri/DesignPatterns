@@ -1,4 +1,4 @@
-package com.weiyuze.dp.builder;
+package com.weiyuze.dp.builder_teach;
 
 public class Terrain {
     Wall w;
