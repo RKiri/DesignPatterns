@@ -6,7 +6,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.concurrent.locks.LockSupport;
 
-public class Test {
+public class Test_teach {
     public static void main(String[] args) throws Exception {
         Thread t = new Thread(()->{
             System.out.println("start");
