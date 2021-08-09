@@ -1,4 +1,4 @@
-package com.weiyuze.dp.bridge.v2;
+package com.weiyuze.dp.bridge_teach.v1;
 
 public class GG {
     public void chase(MM mm) {

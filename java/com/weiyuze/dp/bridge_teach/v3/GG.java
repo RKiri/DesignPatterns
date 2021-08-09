@@ -1,13 +1,14 @@
-package com.weiyuze.dp.bridge.v4;
+package com.weiyuze.dp.bridge_teach.v3;
 
 public class GG {
     public void chase(MM mm) {
-        Gift g = new WarmGift(new Flower());
+        Gift g = new Book();
         give(mm, g);
     }
 
     public void give(MM mm, Gift g) {
-        System.out.println(g + "gived!");
+
     }
+
 
 }
