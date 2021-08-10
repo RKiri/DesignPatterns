@@ -1,4 +1,4 @@
-package com.weiyuze.dp.command;
+package com.weiyuze.dp.command_teach;
 
 public abstract class Command {
     public abstract void doit(); //exec run

@@ -1,4 +1,4 @@
-package com.weiyuze.dp.command;
+package com.weiyuze.dp.command_teach;
 
 public class CopyCommand extends Command {
     Content c;

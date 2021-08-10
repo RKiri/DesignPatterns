@@ -1,4 +1,4 @@
-package com.weiyuze.dp.command;
+package com.weiyuze.dp.command_teach;
 
 public class DeleteCommand extends Command {
     Content c;
