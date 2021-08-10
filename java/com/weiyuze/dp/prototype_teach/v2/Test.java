@@ -1,9 +1,8 @@
-package com.weiyuze.dp.prototype.v1;
+package com.weiyuze.dp.prototype_teach.v2;
 
 /**
- * 浅克隆
+ * 深克隆的处理
  */
-
 public class Test {
     public static void main(String[] args) throws Exception {
         Person p1 = new Person();
@@ -15,6 +14,8 @@ public class Test {
         p1.loc.street = "sh";
         System.out.println(p2.loc);
 
+
+
     }
 }
 
@@ -25,11 +26,13 @@ class Person implements Cloneable {
     Location loc = new Location("bj", 22);
     @Override
     public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+        Person p = (Person)super.clone();
+        p.loc = (Location)loc.clone();
+        return p;
     }
 }
 
-class Location {
+class Location implements Cloneable {
     String street;
     int roomNo;
 
@@ -44,5 +47,10 @@ class Location {
     public Location(String street, int roomNo) {
         this.street = street;
         this.roomNo = roomNo;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
