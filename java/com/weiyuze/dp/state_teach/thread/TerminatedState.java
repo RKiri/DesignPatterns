@@ -1,9 +1,9 @@
-package com.weiyuze.dp.state.thread;
+package com.weiyuze.dp.state_teach.thread;
 
-public class RunningState extends ThreadState_ {
+public class TerminatedState extends ThreadState_ {
     private Thread_ t;
 
-    public RunningState(Thread_ t) {
+    public TerminatedState(Thread_ t) {
         this.t = t;
     }
 

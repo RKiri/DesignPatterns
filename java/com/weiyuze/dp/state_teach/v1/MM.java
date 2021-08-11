@@ -1,4 +1,4 @@
-package com.weiyuze.dp.state.v2;
+package com.weiyuze.dp.state_teach.v1;
 
 /**
  * 当增加新的状态时非常不方便
@@ -6,18 +6,19 @@ package com.weiyuze.dp.state.v2;
 
 public class MM {
     String name;
-    MMState state = new MMHappyState();
+    private enum MMState {HAPPY, SAD}
+    MMState state;
 
     public void smile() {
-        state.smile();
+        //switch case
+
     }
 
     public void cry() {
-        state.cry();
+        //switch case
     }
 
     public void say() {
-        state.say();
+        //switch case
     }
-
 }

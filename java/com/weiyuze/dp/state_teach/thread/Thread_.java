@@ -1,4 +1,4 @@
-package com.weiyuze.dp.state.thread;
+package com.weiyuze.dp.state_teach.thread;
 
 public class Thread_ {
     ThreadState_ state;

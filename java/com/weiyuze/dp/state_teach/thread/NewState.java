@@ -1,4 +1,4 @@
-package com.weiyuze.dp.state.thread;
+package com.weiyuze.dp.state_teach.thread;
 
 public class NewState extends ThreadState_ {
     private Thread_ t;

@@ -1,9 +1,9 @@
 package com.weiyuze.dp.state.v2;
 
-public class MMHappyState extends MMState {
+public class MMNervousState extends MMState {
     @Override
     void smile() {
-        System.out.println("happy smile");
+        System.out.println("NervousSmile");
     }
 
     @Override
