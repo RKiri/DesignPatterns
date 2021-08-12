@@ -9,8 +9,12 @@ public class NewState extends ThreadState_ {
 
     @Override
     void move(Action input) {
-        if(input.msg == "start")
-        t.state = new RunningState(t);
+        if (input.msg == "start") {
+            t.state = new RunningState(t);
+            System.out.println("RunningState...");
+            input.msg = "Running";
+        }
+
     }
 
     @Override

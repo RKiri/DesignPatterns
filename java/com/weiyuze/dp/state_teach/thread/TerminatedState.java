@@ -9,6 +9,9 @@ public class TerminatedState extends ThreadState_ {
 
     @Override
     void move(Action input) {
+        if (input.msg == "TerminatedState") {
+            System.out.println("...");
+        }
 
     }
 

@@ -9,6 +9,11 @@ public class RunningState extends ThreadState_ {
 
     @Override
     void move(Action input) {
+        if (input.msg == "Running") {
+            t.state = new TerminatedState(t);
+            System.out.println("TerminatedState...");
+            input.msg = "TerminatedState";
+        }
 
     }
 
